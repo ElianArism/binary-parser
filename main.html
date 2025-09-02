@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./app.js" defer></script>
+    <title>Binary Parser!</title>
+  </head>
+  <body>
+    <main class="container">
+      <section class="heading-content">
+        <h1>Binary parser</h1>
+        <p class="convert-message" id="binary-converter-message">Put your message and it'll be parsed!</p>
+        <p class="convert-message" id="text-converter-message">Put your code and it'll be parsed!</p>
+      </section>
+
+      <section class="message-form-container">
+        <form id="parse-form" class="message-form" action="#">
+          <div class="input-type-container">
+            <span>Convert to: </span>
+            <div class="radio-containers">
+              <div>
+                <input name="input-type" type="radio" value="binary" id="input-type-binary" />
+                <label for="input-type">Binary</label>
+              </div>
+              <div>
+                <input name="input-type" type="radio" value="text" id="input-type-text" />
+                <label for="input-type">Text</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="message-input-container">
+            <label id="message-input" for="message-input">Put your message here!</label>
+            <textarea id="convert-input" type="text" name="message-input"></textarea>
+          </div>
+
+          <button id="submit-button" type="submit">Generate</button>
+        </form>
+      </section>
+
+      <section class="displayed-message-container">
+        <h2 class="message-container">Converted message</h2>
+        <code id="parsed-message" class="message-container">20230234234</code>
+      </section>
+    </main>
+  </body>
+</html>
