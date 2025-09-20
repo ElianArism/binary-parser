@@ -1,6 +1,12 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  user-select: none;
+}
+
 html,
 body {
-  box-sizing: border-box;
   padding: 0 !important;
   margin: 0 !important;
   width: 100%;
@@ -8,12 +14,18 @@ body {
 }
 
 .container {
-  background-color: #f3f3f3;
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.container,
+.animation-area {
+  font-family: "Doto", sans-serif;
+  color: #00ff41;
+  overflow: hidden;
 }
 
 .heading-content {
@@ -42,23 +54,39 @@ body {
   height: 150px;
   resize: vertical;
   margin-bottom: 1rem;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  outline: 1px solid #003b00;
+  background-color: #0d0208;
+  transition: outline 200ms;
+  color: #008f11;
+}
+
+.message-form textarea:focus {
+  border: none;
+  outline: 1px solid #008f11;
+  transition: outline 200ms;
 }
 
 .message-form button {
-  background-color: rgb(233, 233, 233);
-  border: 1px solid rgb(173, 173, 173);
-  border-radius: 10px;
-  padding: 7px;
-  width: 55%;
+  color: #00ff41;
+  font-size: large;
+  font-family: "Doto", sans-serif;
+  min-width: 100px;
+  width: 25%;
   margin: auto;
   cursor: pointer;
-  transition: background-color 400ms, border 600ms;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  outline: none;
 }
 
 .message-form button:hover {
-  background-color: rgb(225, 225, 225);
-  border: 1px solid rgb(165, 165, 165);
-  transition: background-color 400ms, border 600ms;
+  outline: 1px dotted #00ff41;
+  border-radius: 5px;
+  background-color: #0d0208;
 }
 
 .displayed-message-container {
@@ -83,15 +111,94 @@ body {
 .input-type-container {
   width: 100%;
 }
+.input-type-container span {
+  text-align: center;
+  display: block;
+  margin: 1rem;
+}
 
 .input-type-container .radio-containers {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.input-type-container .radio-containers .radio-control {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 3rem 5rem;
+  text-align: left;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  /* remove old styles */
+  -webkit-appearance: none;
+  appearance: none;
+  /* new styles, for more check: https://moderncss.dev/pure-css-custom-styled-radio-buttons/ */
+  margin: auto;
+  background-color: #0d0208;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 0.15rem solid #00b000;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  background-color: #008f11;
+}
+
+.input-type-container .radio-containers .radio-control:focus-within {
+  text-shadow: 0.5px 0 1px #00ff41;
+  transition: text-shadow 500ms;
 }
 
 .message-input-container {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
+}
+
+.animation-area {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0d0208;
+  overflow: hidden;
+}
+
+.animation-area .word-list {
+  display: flex;
+}
+
+.animation-area .word-list li {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: min-content;
+  position: absolute;
+  bottom: -1000px;
+  animation: matrix 6s ease-in-out infinite;
+  user-select: none;
+}
+
+.animation-area .word-list li span {
+  color: #00b000;
+  background-color: #0d0208;
+  text-shadow: 0 0 2px #00ff41;
+}
+
+@keyframes matrix {
+  0% {
+    transform: translateY(1000px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-2500px);
+    opacity: 0.5;
+  }
 }

@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script src="./app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet" />
+    <script src="./app.js" type="module" defer></script>
     <title>Binary Parser!</title>
   </head>
   <body>
@@ -12,7 +15,7 @@
       <section class="heading-content">
         <h1>Binary parser</h1>
         <p class="convert-message" id="binary-converter-message">Put your message and it'll be parsed!</p>
-        <p class="convert-message" id="text-converter-message">Put your code and it'll be parsed!</p>
+        <!-- <p class="convert-message" id="text-converter-message">Put your code and it'll be parsed!</p> -->
       </section>
 
       <section class="message-form-container">
@@ -20,14 +23,14 @@
           <div class="input-type-container">
             <span>Convert to: </span>
             <div class="radio-containers">
-              <div>
+              <label class="radio-control" for="input-type">
                 <input name="input-type" type="radio" value="binary" id="input-type-binary" />
-                <label for="input-type">Binary</label>
-              </div>
-              <div>
+                Binary
+              </label>
+              <label class="radio-control" for="input-type">
                 <input name="input-type" type="radio" value="text" id="input-type-text" />
-                <label for="input-type">Text</label>
-              </div>
+                Text
+              </label>
             </div>
           </div>
 
@@ -40,10 +43,13 @@
         </form>
       </section>
 
-      <section class="displayed-message-container">
+      <!-- <section class="displayed-message-container">
         <h2 class="message-container">Converted message</h2>
         <code id="parsed-message" class="message-container">20230234234</code>
-      </section>
+      </section> -->
     </main>
+    <div class="animation-area">
+      <ul class="word-list"></ul>
+    </div>
   </body>
 </html>

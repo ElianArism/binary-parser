@@ -1,3 +1,5 @@
+import { PHRASES } from "./constants.js";
+
 const parseForm = document.querySelector("#parse-form");
 const submitButton = document.querySelector("#submit-button");
 const parsedMessageDiv = document.querySelector("#parsed-message");
@@ -8,6 +10,10 @@ const radioText = document.querySelector("#input-type-text");
 
 let validationsPassedCounter = 0;
 submitButton.disabled = true;
+
+const getRandomValue = (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min);
+};
 
 const validateForm = (e) => {
   const val = e.target.value.trim();
@@ -68,4 +74,30 @@ parseForm.addEventListener("submit", (e) => {
 
   const parsedMessage = parseMessage(formValue["message-input"], formValue["input-type"]);
   parsedMessageDiv.textContent = parsedMessage;
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wordListContainer = document.querySelector(".word-list");
+
+  PHRASES.forEach((words) => {
+    const li = document.createElement("li");
+    li.setAttribute(
+      "style",
+      `left: ${getRandomValue(1, 100)}%; animation-delay: ${getRandomValue(
+        3,
+        15
+      )}s;   animation-duration: ${getRandomValue(10, 20)}s;`
+    );
+
+    for (let i = 0; i < words.length; i++) {
+      const char = words[i];
+
+      const span = document.createElement("span");
+      span.textContent = char;
+
+      li.appendChild(span);
+    }
+
+    wordListContainer.appendChild(li);
+  });
 });
