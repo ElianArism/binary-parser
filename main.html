@@ -14,22 +14,19 @@
     <main class="container">
       <section class="heading-content">
         <h1>Binary parser</h1>
-        <p class="convert-message" id="binary-converter-message">Put your message and it'll be parsed!</p>
-        <!-- <p class="convert-message" id="text-converter-message">Put your code and it'll be parsed!</p> -->
       </section>
 
       <section class="message-form-container">
         <form id="parse-form" class="message-form" action="#">
           <div class="input-type-container">
-            <span>Convert to: </span>
             <div class="radio-containers">
               <label class="radio-control" for="input-type">
                 <input name="input-type" type="radio" value="binary" id="input-type-binary" />
-                Binary
+                Text &nbsp;&nbsp; ==> Binary
               </label>
               <label class="radio-control" for="input-type">
                 <input name="input-type" type="radio" value="text" id="input-type-text" />
-                Text
+                Binary &nbsp;==> Text
               </label>
             </div>
           </div>
@@ -43,10 +40,10 @@
         </form>
       </section>
 
-      <!-- <section class="displayed-message-container">
+      <section class="displayed-message-container">
         <h2 class="message-container">Converted message</h2>
-        <code id="parsed-message" class="message-container">20230234234</code>
-      </section> -->
+        <code id="parsed-message" class="message-container"></code>
+      </section>
     </main>
     <div class="animation-area">
       <ul class="word-list"></ul>
